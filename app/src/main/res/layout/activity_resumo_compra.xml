@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.ResumoCompraActivity">
+
+    <ImageView
+        android:id="@+id/resumoCompraCabecalho"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:src="@android:color/holo_orange_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0" />
+
+    <TextView
+        android:id="@+id/resumoCompraTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/parabens"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/resumoCompraCabecalho"
+        app:layout_constraintEnd_toEndOf="@+id/resumoCompraCabecalho"
+        app:layout_constraintStart_toStartOf="@+id/resumoCompraCabecalho"
+        app:layout_constraintTop_toTopOf="@+id/resumoCompraCabecalho"
+        app:layout_constraintVertical_bias="0" />
+
+    <TextView
+        android:id="@+id/resumoCompraSubTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/compra_realizada"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/resumoCompraTitulo"
+        app:layout_constraintStart_toStartOf="@+id/resumoCompraTitulo"
+        app:layout_constraintTop_toBottomOf="@+id/resumoCompraTitulo" />
+
+    <TextView
+        android:id="@+id/resumoCompraInformacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/confira_o_resumo_da_compra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resumoCompraCabecalho" />
+
+    <ImageView
+        android:id="@+id/resumoCompraImagem"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resumoCompraInformacao"
+        tools:src="@drawable/sao_paulo_sp" />
+
+    <TextView
+        android:id="@+id/resumoCompraLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resumoCompraImagem"
+        tools:text="São Paulo" />
+
+    <TextView
+        android:id="@+id/resumoCompraData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/resumoCompraLocal"
+        app:layout_constraintTop_toBottomOf="@+id/resumoCompraLocal"
+        tools:text="08/12 - 10/12 de 2017" />
+
+    <TextView
+        android:id="@+id/resumoCompraPreco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/resumoCompraData"
+        app:layout_constraintTop_toBottomOf="@+id/resumoCompraData"
+        tools:text="R$ 243,99" />
+</androidx.constraintlayout.widget.ConstraintLayout>

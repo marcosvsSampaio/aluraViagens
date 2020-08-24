@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/resumoPacoteImagem"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:src="@drawable/sao_paulo_sp" />
+
+    <TextView
+        android:id="@+id/resumoPacoteLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resumoPacoteImagem"
+        tools:text="São Paulo" />
+
+    <TextView
+        android:id="@+id/resumoPacoteDias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/resumoPacoteLocal"
+        app:layout_constraintTop_toBottomOf="@+id/resumoPacoteLocal"
+        tools:text="2 dias" />
+
+    <TextView
+        android:id="@+id/resumoPacoteData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/resumoPacotePreco"
+        app:layout_constraintStart_toStartOf="@+id/resumoPacoteDias"
+        app:layout_constraintTop_toBottomOf="@+id/resumoPacoteDias"
+        tools:text="14/07 - 16/07 de 2020" />
+
+    <TextView
+        android:id="@+id/resumoPacotePreco"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="20sp"
+        android:textAlignment="textEnd"
+        app:layout_constraintStart_toEndOf="@+id/resumoPacoteData"
+        app:layout_constraintBottom_toBottomOf="@+id/resumoPacoteData"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="R$ 243,99" />
+
+    <TextView
+        android:id="@+id/resumoPacoteTituloPreco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Preço final:"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/resumoPacotePreco"
+        app:layout_constraintEnd_toEndOf="@+id/resumoPacotePreco"
+        tools:text="Preço final:" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/botao_redondo_laranja"
+        android:text="Realizar pagamento"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="1" />
+</androidx.constraintlayout.widget.ConstraintLayout>
