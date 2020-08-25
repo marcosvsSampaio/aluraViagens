@@ -1,13 +1,14 @@
 package br.com.aluraviagens.ui.activity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.math.BigDecimal;
 
 import br.com.aluraviagens.R;
 import br.com.aluraviagens.model.Pacote;
@@ -15,6 +16,8 @@ import br.com.aluraviagens.ui.util.DataUtil;
 import br.com.aluraviagens.ui.util.DiasUtil;
 import br.com.aluraviagens.ui.util.MoedaUtil;
 import br.com.aluraviagens.ui.util.ResourcesUtil;
+
+import static br.com.aluraviagens.ui.activity.PacoteActivity.CHAVE_PACOTE;
 
 public class ResumoPacoteActivity extends AppCompatActivity {
 
@@ -25,9 +28,35 @@ public class ResumoPacoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resumo_pacote);
         setTitle(TITULO_APP_BAR);
+        carregaPacoteRecebido();
+    }
 
-        Pacote pacote = new Pacote("São Paulo", "sao_paulo_sp", 2, new BigDecimal(243.99));
+    private void carregaPacoteRecebido() {
+        Intent intent = getIntent();
+        if (intent.hasExtra(CHAVE_PACOTE)) {
+            final Pacote pacote = (Pacote) intent.getSerializableExtra(CHAVE_PACOTE);
+            inicializaCampos(pacote);
+            configuraBotao(pacote);
+        }
+    }
 
+    private void configuraBotao(final Pacote pacote) {
+        Button botaoRealizarPagamento = findViewById(R.id.resumoPacoteButton);
+        botaoRealizarPagamento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                vaiParaPagamento(pacote);
+            }
+        });
+    }
+
+    private void vaiParaPagamento(Pacote pacote) {
+        Intent intent = new Intent(ResumoPacoteActivity.this, PagamentoActivity.class);
+        intent.putExtra(CHAVE_PACOTE, pacote);
+        startActivity(intent);
+    }
+
+    private void inicializaCampos(Pacote pacote) {
         mostraLocal(pacote);
         mostraImagem(pacote);
         mostraDias(pacote);

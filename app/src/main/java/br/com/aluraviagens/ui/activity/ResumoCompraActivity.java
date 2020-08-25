@@ -2,11 +2,14 @@ package br.com.aluraviagens.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import br.com.aluraviagens.R;
@@ -25,12 +28,14 @@ public class ResumoCompraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_resumo_compra);
         setTitle(TITULO_RESUMO_COMPRA);
 
-        Pacote pacote = new Pacote("São Paulo", "sao_paulo_sp", 2, new BigDecimal("243.99"));
-
-        mostraLocal(pacote);
-        mostraData(pacote);
-        mostraImagem(pacote);
-        mostraPreco(pacote);
+        Intent intent = getIntent();
+        if (intent.hasExtra("pacote")) {
+            final Pacote pacote = (Pacote) intent.getSerializableExtra("pacote");
+            mostraLocal(pacote);
+            mostraData(pacote);
+            mostraImagem(pacote);
+            mostraPreco(pacote);
+        }
     }
 
     private void mostraPreco(Pacote pacote) {
